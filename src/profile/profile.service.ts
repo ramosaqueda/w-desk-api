@@ -31,7 +31,30 @@ export class ProfileService {
             return this.userRepository.save(userFound); 
 
 
+    }
+
+    async getProfile(id: number) {
+        const profileFound = await this.profileRepository.findOne({
+            where: {
+                id,
+            }
+        });
+
+        if (!profileFound) {
+            return new HttpException('Profile not found', HttpStatus.NOT_FOUND);
         }
+        return profileFound;
+
+    }
+
+    async deleteProfile(id: number) {
+        const result = await this.profileRepository.delete(id);
+        if (result.affected === 0) {
+            return new HttpException('Profile not found', HttpStatus.NOT_FOUND);
+        }
+        return result;
+    }
+
             
 
         

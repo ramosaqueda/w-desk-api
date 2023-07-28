@@ -1,4 +1,4 @@
-import { Controller,Post, Param, Body } from '@nestjs/common';
+import { Controller,Post,Get, Param, Body } from '@nestjs/common';
 import { ProfileService } from './profile.service';
 import { CreateProfileDto } from './dto/create-profile.dto';
 
@@ -11,4 +11,11 @@ export class ProfileController {
         return this.profileService.createProfile(userId, profile);
 
     }
+
+    @Get(':id')
+    GetProfile(@Param('id') id: number) {
+        return this.profileService.getProfile(id);
+    }
+
+
 }
