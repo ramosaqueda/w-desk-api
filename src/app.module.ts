@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ProfileModule } from './profile/profile.module';
+import { SystemController } from './system/system.controller';
+import { SystemService } from './system/system.service';
+import { SystemModule } from './system/system.module';
 @Module({
 
   imports: [
@@ -18,8 +21,9 @@ import { ProfileModule } from './profile/profile.module';
       synchronize: true
     }),
     UsersModule,
-    ProfileModule],
-  controllers: [AppController],
-  providers: [AppService],
+    ProfileModule,
+    SystemModule],
+  controllers: [AppController, SystemController],
+  providers: [AppService, SystemService],
 })
 export class AppModule {}
