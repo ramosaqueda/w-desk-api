@@ -4,7 +4,7 @@ import { Profile } from './profile.entity';
 import { Repository } from 'typeorm';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { User } from '../users/user.entity';
+import { User } from '../users/entities/user.entity';
 
 
 @Injectable()

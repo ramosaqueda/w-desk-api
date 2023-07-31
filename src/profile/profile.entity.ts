@@ -1,9 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne} from 'typeorm';
- 
+import { BaseEntity } from '../config/base.entity'; 
 @Entity()
-export class Profile {
-    @PrimaryGeneratedColumn()
-    id: number;
+export class Profile extends BaseEntity { 
 
     @Column()
     firstname: string;
@@ -24,14 +22,5 @@ export class Profile {
 
     @Column()
     cta_saf: string;
- 
-
-    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    created_at: Date;
-
-    @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    update_at: Date;
-    
-    
 
 }
